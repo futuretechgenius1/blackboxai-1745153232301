@@ -24,7 +24,7 @@ function App() {
 
   const fetchFields = async () => {
     try {
-      const res = await axios.get(\`\${API_BASE_URL}/fields\`);
+      const res = await axios.get(`${API_BASE_URL}/fields`);
       setFields(res.data);
     } catch (error) {
       console.error("Error fetching fields:", error);
@@ -106,7 +106,7 @@ function App() {
       });
 
       // Call API to update
-      await axios.put(\`\${API_BASE_URL}/\${editItem.id || ""}\`, updatedFields);
+      await axios.put(`${API_BASE_URL}/${editItem.id || ""}`, updatedFields);
       closeEdit();
       fetchData(page, size);
     } catch (error) {
@@ -155,7 +155,7 @@ function App() {
       const values = fields.map((field) => {
         const val = row[field];
         if (val === null || val === undefined) return "";
-        return \`"\${val.toString().replace(/"/g, '""')}"\`;
+        return `"${val.toString().replace(/"/g, '""')}"`;
       });
       csvRows.push(values.join(","));
     });
