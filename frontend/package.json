@@ -16,5 +16,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
